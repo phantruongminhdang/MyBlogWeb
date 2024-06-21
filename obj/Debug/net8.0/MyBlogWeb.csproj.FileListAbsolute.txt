@@ -157,3 +157,4 @@ D:\Git Repositories\MyBlogWeb\MyBlogWeb\bin\Debug\net8.0\MimeKit.dll
 D:\Git Repositories\MyBlogWeb\MyBlogWeb\bin\Debug\net8.0\Newtonsoft.Json.dll
 D:\Git Repositories\MyBlogWeb\MyBlogWeb\bin\Debug\net8.0\Application.dll
 D:\Git Repositories\MyBlogWeb\MyBlogWeb\bin\Debug\net8.0\Application.pdb
+D:\Git Repositories\MyBlogWeb\MyBlogWeb\obj\Debug\net8.0\MyBlogWeb.sourcelink.json

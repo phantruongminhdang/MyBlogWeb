@@ -125,6 +125,20 @@ namespace MyBlogWeb.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpGet("User")]
+        public async Task<IActionResult> GetListUserForUserRole(int pageIndex = 0, int pageSize = 20)
+        {
+            try
+            {
+                var users = await _userService.GetListUserForUserRoleAsync(pageIndex, pageSize);
+                return Ok(users);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
         [Authorize(Roles = "Manager")]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetUserId(string id)

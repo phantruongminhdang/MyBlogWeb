@@ -34,6 +34,22 @@ namespace MyBlogWeb.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpGet("User")]
+        [Authorize()]
+        public async Task<IActionResult> GetByUserId([FromQuery] string userId, int pageIndex = 0, int pageSize = 20)
+        {
+            try
+            {
+                var products = await _blogService.GetByUserId(pageIndex, pageSize, userId, _claims.GetIsAdmin);
+                return Ok(products);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         [HttpPost]
         public async Task<IActionResult> Post([FromForm] BlogModel productModel)
         {
@@ -100,6 +116,19 @@ namespace MyBlogWeb.Controllers
             try
             {
                 var products = await _blogService.GetByBlogType(pageIndex, pageSize, blogTypeId);
+                return Ok(products);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpGet("ParentId/{parentId}")]
+        public async Task<IActionResult> GetByParentId([FromRoute] Guid parentId, [FromQuery] int pageIndex = 0, int pageSize = 20)
+        {
+            try
+            {
+                var products = await _blogService.GetByParentId(pageIndex, pageSize, parentId, _claims.GetIsAdmin);
                 return Ok(products);
             }
             catch (Exception ex)
