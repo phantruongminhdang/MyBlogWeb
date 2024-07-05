@@ -21,7 +21,6 @@ namespace MyBlogWeb.Controllers
         }
 
         [HttpGet]
-        [Authorize()]
         public async Task<IActionResult> GetByFilter([FromQuery] FilterBlogModel filterBonsaiModel, int pageIndex = 0, int pageSize = 20)
         {
             try
@@ -51,6 +50,7 @@ namespace MyBlogWeb.Controllers
         }
 
         [HttpPost]
+        [Authorize()]
         public async Task<IActionResult> Post([FromForm] BlogModel productModel)
         {
             try
